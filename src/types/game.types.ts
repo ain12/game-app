@@ -1,0 +1,15 @@
+export interface GameGenre {
+  id: number
+  name: string
+}
+
+export interface Game {
+  id: number
+  name: string
+  background_image: string
+  released: string
+  description: string
+  rating: number
+  genres: GameGenre[]
+}
+
