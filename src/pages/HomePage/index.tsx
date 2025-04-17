@@ -112,7 +112,7 @@ const useHomePageLogic = () => {
 
   const getGenres = useCallback(async () => {
     try {
-      const response = await fetch('/api/getGenres')
+      const response = await fetch('/api/getGenresHandler')
       const data = await response.json()
       if (response.ok) {
         setGameGenres(data.results)

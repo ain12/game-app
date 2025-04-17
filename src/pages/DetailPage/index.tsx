@@ -65,7 +65,7 @@ const useDetailPageLogic = () => {
 
   const getSingleGame = useCallback(async() => {
     try {
-      const response = await fetch(`/api/getSingleGame?id=${id}`)
+      const response = await fetch(`/api/getSingleGameHandler?id=${id}`)
       const data = await response.json()
       if(data) {
         setGameDetail(data)
