@@ -15,6 +15,10 @@ const getGamesHandler = async(req: VercelRequest, res: VercelResponse) => {
   }
   try {
     const response = await fetch(url)
+    if (!response.ok) {
+      const textResponse = await response.text()
+      return res.status(response.status).json({ error: 'Rawg API error', message: textResponse })
+    }
     const data = await response.json()
     if (!response.ok) {
       return res.status(response.status).json({ error: data })
