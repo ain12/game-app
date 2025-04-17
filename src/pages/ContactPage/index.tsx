@@ -53,7 +53,6 @@ const useContactPageLogic = () => {
   const [showMessageBubble, setShowMessageBubble] = useState<boolean>(false)
   const localStorageData = localStorage.getItem('contactFormData')
   const localStorageDataParsed = localStorageData ? JSON.parse(localStorageData) : null
-
   const handleOnChangeInputs = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target
     setData(old => ({...old, [name]: value}))
