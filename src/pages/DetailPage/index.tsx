@@ -53,7 +53,7 @@ const DetailPage: React.FC = () => {
     </div>
     <div className="mt-10">
       <h2 className="text-2xl font-bold mb-4">About</h2>
-      <p>{gameDetail.description.replace(regex, "")}</p>
+      <p className="text-justify">{gameDetail.description.replace(regex, "")}</p>
     </div>
 </div>
 

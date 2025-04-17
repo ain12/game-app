@@ -93,7 +93,11 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <button
                   key={genre.id}
                   onClick={() => handleGameGenreSelected(genre.id)}
-                  className="flex items-center gap-2  text-left p-2 rounded hover:bg-[#2a2a2a]"
+                  className={`flex items-center gap-2 text-left p-2 rounded transition-colors] ${
+                    selectedGameGenreId == genre.id
+                      ? "bg-[#FEBA17] text-black font-semibold"
+                      : "hover:bg-[#2a2a2a]"
+                  }`}
                 >
                   <img
                     src={genre.image_background}
