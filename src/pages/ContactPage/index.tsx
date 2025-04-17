@@ -24,10 +24,7 @@ const ContactPage: React.FC = () => {
           <h1 className="text-5xl">Any questions?</h1>
           <p className="text-justify">This is not a real form, it's just an example. The send message button triggers a bubble message of successs with the name introduced in the input name.
             The name is saved in localStorage. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Tenetur error, blanditiis sint consequuntur eveniet itaque laboriosam ex dolores veniam repudiandae iusto 
-            ipsa commodi, molestias numquam cum possimus recusandae asperiores consequatur.
-            lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea reprehenderit nam repellat non ratione nostrum tempore 
-            ut provident minus voluptatum magnam numquam, quo maxime veniam distinctio tenetur eveniet, expedita doloremque!
+            Tenetur error, blanditiis sint consequuntur eveniet itaque laboriosam ex dolores veniam repudiandae iusto
           </p>
         </div>
         <div className="flex flex-1 mb-4 md:mb-0 flex-col p-6 md:p-10 bg-gray-100 rounded-lg shadow-lg gap-4 w-full max-w-xl">

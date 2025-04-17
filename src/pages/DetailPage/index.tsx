@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import Spinner from "../../components/Spinner"
 import { useParams, useNavigate } from "react-router-dom"
-import { API_KEY } from "../../constants/api"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { regex } from "../../constants/utils"
@@ -66,7 +65,7 @@ const useDetailPageLogic = () => {
 
   const getSingleGame = useCallback(async() => {
     try {
-      const response = await fetch(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
+      const response = await fetch(`/api/getSingleGame?id=${id}`)
       const data = await response.json()
       if(data) {
         setGameDetail(data)
@@ -83,4 +82,4 @@ const useDetailPageLogic = () => {
   return {gameDetail}
 }
 
-export default DetailPage;
+export default DetailPage
