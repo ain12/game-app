@@ -93,8 +93,13 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <button
                   key={genre.id}
                   onClick={() => handleGameGenreSelected(genre.id)}
-                  className="block w-full text-left p-2 rounded hover:bg-[#2a2a2a]"
+                  className="flex items-center gap-2  text-left p-2 rounded hover:bg-[#2a2a2a]"
                 >
+                  <img
+                    src={genre.image_background}
+                    alt={genre.name}
+                    className="w-6 h-6 object-cover rounded"
+                  />
                   {genre.name}
                 </button>
               ))

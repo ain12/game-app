@@ -6,6 +6,7 @@ import Navbar from "../../components/NavBar"
 import PaginationBar from "../../components/PaginationBar"
 import { API_KEY } from "../../constants/api"
 import { Game, GameGenre } from "../../types/game.types"
+import SearchBar from "../../components/SearchBar"
 
 const HomePage: React.FC = () => {
   const {
@@ -31,8 +32,11 @@ const HomePage: React.FC = () => {
       <div className="flex flex-1">
         <Sidebar {...{ gameGenres, handleGameGenreSelected, showSidebar, setShowSidebar, clearFilter, selectedGameGenreId}}/>
         <div className="flex-1 py-3 px-8">
-          <h1 className="text-7xl font-bold mb-4">Video Games</h1>
+          <h1 className="text-5xl lg:text-7xl font-bold mb-4">Video Games</h1>
           <h3 className="text-lg">All your favorite games here</h3>
+          <div className="w-full mt-4 md:hidden">
+            <SearchBar {...{searchWord, handleSearchWord}}/>
+          </div>
           <PaginationBar {...{ currentPage, totalPages, handleNextPage, handlePreviousPage}} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {loading &&     gameGenres.length > 0 ? (
@@ -95,7 +99,7 @@ const useHomePageLogic = () => {
     setInfoState((old) => ({
       ...old,
       selectedGameGenreId,
-      showSidebar: false,
+      // showSidebar: false,
     }))
   }, [])
 
@@ -125,8 +129,12 @@ const useHomePageLogic = () => {
     setInfoState((old) => ({ ...old, loading: true }))
     try {
       let url = `https://api.rawg.io/api/games?key=${API_KEY}&page=${infoState.currentPage}&page_size=${pageSize}`
-      if (infoState.searchWord) url += `&search=${infoState.searchWord}`
-      if (infoState.selectedGameGenreId) url += `&genres=${infoState.selectedGameGenreId}`
+      if (infoState.searchWord) {
+        url += `&search=${infoState.searchWord}`
+      } 
+      if (infoState.selectedGameGenreId) {
+        url += `&genres=${infoState.selectedGameGenreId}`
+      }
 
       const response = await fetch(url)
       const data = await response.json()

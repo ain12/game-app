@@ -20,16 +20,13 @@ const DetailPage: React.FC = () => {
   }
   
   return (
-
   <div className="p-6 max-w-6xl mx-auto text-white">
-
     <button
       onClick={() => navigate(-1)}
       className="px-4 py-2 mb-6 rounded-full bg-[#2a2a2a] hover:bg-[#3a3a3a]"
     >
       <FontAwesomeIcon icon={faArrowLeft} /> Back
     </button>
-
     <div className="flex flex-col md:flex-row gap-6">
       <div className="md:w-1/2">
         <img
@@ -38,11 +35,10 @@ const DetailPage: React.FC = () => {
           className="w-full h-auto rounded-xl shadow-lg object-cover"
         />
     </div>
-
     <div className="md:w-1/2 space-y-4">
         <h1 className="text-4xl font-bold">{gameDetail.name}</h1>
         <p className="text-sm text-gray-400">Released: {gameDetail.released}</p>
-        <p className="text-sm font-semibold text-yellow-500">Rating: {gameDetail.rating}</p>
+        <p className="text-sm font-semibold text-[#FEBA17]">Rating: {gameDetail.rating}</p>
         <div className="flex flex-wrap gap-2 mt-4">
           {gameDetail.genres?.map((genre) => (
             <span
@@ -55,12 +51,10 @@ const DetailPage: React.FC = () => {
         </div>
       </div>
     </div>
-
-  <div className="mt-10">
-    <h2 className="text-2xl font-bold mb-4">About</h2>
-    <div className="prose max-w-none text-gray-200 prose-invert"/>
-    <p>{gameDetail.description.replace(regex, "")}</p>
-  </div>
+    <div className="mt-10">
+      <h2 className="text-2xl font-bold mb-4">About</h2>
+      <p>{gameDetail.description.replace(regex, "")}</p>
+    </div>
 </div>
 
   )

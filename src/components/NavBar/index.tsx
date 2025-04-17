@@ -16,17 +16,17 @@ const Navbar: React.FC<NavbarProps> = ({
   setShowSidebar,
 }) => {
   return (
-    <nav className="flex items-center gap-4 px-8 py-5 border-none bg-[#1a1a1a] text-white">
-      <h1 className="text-2xl font-bold whitespace-nowrap">Game Finder</h1>
+    <nav className="flex items-center justify-between gap-4 px-8 py-5 overflow-hidden border-none bg-[#1a1a1a] text-white">
+      <h1 className="text-sm lg:text-2xl font-bold whitespace-nowrap">Game Finder</h1>
 
-      <div className="flex-1">
+      <div className="w-full hidden md:block md:max-w-[600px]">
         <SearchBar {...{searchWord, handleSearchWord}}/>
       </div>
 
       <div className="flex items-center gap-4">
         <Link
           to="/contactPage"
-          className="relative text-white whitespace-nowrap hover:text-gray-300"
+          className="mx-2 text-white sm:text-sm whitespace-nowrap hover:text-gray-300"
         >
           Contact Us
         </Link>
