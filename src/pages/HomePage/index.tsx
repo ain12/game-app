@@ -6,6 +6,7 @@ import Navbar from "../../components/NavBar"
 import PaginationBar from "../../components/PaginationBar"
 import { Game, GameGenre } from "../../types/game.types"
 import SearchBar from "../../components/SearchBar"
+import { API_KEY } from "../../constants/api"
 
 const HomePage: React.FC = () => {
   const {
@@ -112,7 +113,9 @@ const useHomePageLogic = () => {
 
   const getGenres = useCallback(async () => {
     try {
-      const response = await fetch('/api/getGenresHandler')
+      const response = await fetch(
+        `https://api.rawg.io/api/genres?key=${API_KEY}`
+      )
       const data = await response.json()
       if (response.ok) {
         setGameGenres(data.results)
@@ -125,7 +128,15 @@ const useHomePageLogic = () => {
   const getGames = useCallback(async () => {
     setInfoState((old) => ({ ...old, loading: true }))
     try {
-      const response = await fetch(`/api/getGamesHandler?page=${infoState.currentPage}&page_size=${pageSize}&search=${infoState.searchWord}&genres=${infoState.selectedGameGenreId}`)
+      let url = `https://api.rawg.io/api/games?key=${API_KEY}&page=${infoState.currentPage}&page_size=${pageSize}`
+      if (infoState.searchWord) {
+        url += `&search=${infoState.searchWord}`
+      } 
+      if (infoState.selectedGameGenreId) {
+        url += `&genres=${infoState.selectedGameGenreId}`
+      }
+
+      const response = await fetch(url)
       const data = await response.json()
 
       if (response.ok) {

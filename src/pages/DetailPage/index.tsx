@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { regex } from "../../constants/utils"
 import { Game } from "../../types/game.types"
+import { API_KEY } from "../../constants/api"
 
 const DetailPage: React.FC = () => {
   const navigate = useNavigate()
@@ -65,7 +66,7 @@ const useDetailPageLogic = () => {
 
   const getSingleGame = useCallback(async() => {
     try {
-      const response = await fetch(`/api/getSingleGameHandler?id=${id}`)
+      const response = await fetch(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
       const data = await response.json()
       if(data) {
         setGameDetail(data)
