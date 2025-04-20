@@ -99,7 +99,6 @@ const useHomePageLogic = () => {
     setInfoState((old) => ({
       ...old,
       selectedGameGenreId,
-      // showSidebar: false,
     }))
   }, [])
 

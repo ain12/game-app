@@ -8,9 +8,7 @@ interface SideBarGenreBtnProps {
 }
 
 const SideBarGenreBtn: React.FC<SideBarGenreBtnProps> = ({ gameGenre, selectedGameGenreId, onSelectGameGenre }) => {
-  console.log(selectedGameGenreId, gameGenre.id)
   const isSelected = selectedGameGenreId === String(gameGenre.id)
-
   return (
     <button
       onClick={() => onSelectGameGenre(String(gameGenre.id))}

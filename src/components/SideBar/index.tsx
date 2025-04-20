@@ -43,13 +43,10 @@ const Sidebar: React.FC<SidebarProps> = ({
   
   return (
     <>
-      {/* Sidebar Desktop */}
       <aside className="hidden sm:block w-64 p-8 border-r border-none min-h-screen bg-[#1a1a1a] text-white">
         <SidebarHeader onClearFilter={clearFilter} />
         {renderThis}
       </aside>
-
-      {/* Sidebar Mobile */}
       {showSidebar && (
         <div className="fixed inset-0 z-50 flex sm:hidden">
           <div
