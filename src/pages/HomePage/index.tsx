@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
           </div>
           <PaginationBar {...{ currentPage, totalPages, handleNextPage, handlePreviousPage}} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {loading &&     gameGenres.length > 0 ? (
+            {loading &&  gameGenres.length > 0 ? (
               <div className="flex justify-center items-center h-40 col-span-full">
                 <div className={`transition-opacity duration-300 ${loading ? "opacity-100" : "opacity-0"}`}>
                   <Spinner />
@@ -71,7 +71,7 @@ const useHomePageLogic = () => {
 
   const [games, setGames] = useState<Game[]>([])
   const [gameGenres, setGameGenres] = useState<GameGenre[]>([])
-  const pageSize = 10;
+  const pageSize = 12
   const sidebarRef = useRef<HTMLDivElement | null>(null)
 
   const setShowSidebar = useCallback((show: boolean) => {

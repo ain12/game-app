@@ -1,6 +1,7 @@
 export interface GameGenre {
-  id: number
+  id: string
   name: string
+  image_background: string
 }
 
 export interface Game {
