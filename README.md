@@ -2,7 +2,7 @@
 
 A web app for browsing video games.
 
-## 🚀 Tech stack
+## Tech stack
 
 - [React 19](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
